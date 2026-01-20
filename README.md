@@ -19,10 +19,10 @@ Comprehensive validation of USDA Forest Service TreeMap 2016 and 2022 products u
 - **Elevation**: 150-550 m
 
 ### Sample Size
-- **Field plots**: 227 permanent plots (1/10 acre each)
+- **Field plots**: 255 permanent plots (1/10 acre each)
 - **Trees measured**: 15,870 trees (DBH ≥ 5 inches)
 - **Species recorded**: 45 species
-- **Measurement period**: 2015-2017
+- **Measurement period**: 2022
 
 ### Validated Attributes
 1. Mean diameter (DBH)
