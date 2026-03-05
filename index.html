@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jiayi Tu — PhD Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #1a2640;
+      --pine:     #243352;
+      --sage:     #4a6080;
+      --mist:     #c2cfe0;
+      --cream:    #f0f2f7;
+      --paper:    #f7f8fb;
+      --ink:      #1c1c1c;
+      --mid:      #4a4a4a;
+      --light:    #8a8a8a;
+      --gold:     #7b93b8;
+      --accent:   #3a5a8a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--forest);
+      color: white;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(36,51,82,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(74,96,128,0.2) 0%, transparent 60%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(194,207,224,0.12);
+      box-shadow:
+        0 0 0 40px rgba(194,207,224,0.06),
+        0 0 0 80px rgba(194,207,224,0.04),
+        0 0 0 130px rgba(194,207,224,0.03);
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      width: 100%;
+    }
+
+    .header-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mist);
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── CHANGE 1: Jiayi Tu uses DM Sans (plain sans-serif), not Playfair ── */
+    h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .header-title-em {
+      font-weight: 300;
+      color: var(--mist);
+    }
+
+    .header-role {
+      font-size: 1rem;
+      color: var(--mist);
+      font-weight: 300;
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .role-divider {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--sage);
+      opacity: 0.7;
+    }
+
+    .header-links {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--mist);
+      color: var(--forest);
+    }
+    .btn-primary:hover { background: #fff; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--mist);
+      border: 1px solid rgba(194,207,224,0.4);
+    }
+    .btn-outline:hover {
+      border-color: var(--mist);
+      background: rgba(194,207,224,0.08);
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--pine);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      color: rgba(194,207,224,0.7);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 20px;
+      display: block;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover {
+      color: white;
+      border-bottom-color: var(--mist);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    section {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--mid);
+      font-size: 0.97rem;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .about-text p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .info-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 28px;
+      border-left: 3px solid var(--sage);
+    }
+
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 16px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .info-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .info-item-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 3px;
+    }
+
+    .info-item-value {
+      font-size: 0.88rem;
+      color: var(--mid);
+      font-weight: 400;
+    }
+
+    .info-item-value strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── RESEARCH ── */
+    .research-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .research-card:hover {
+      box-shadow: 0 8px 32px rgba(26,38,64,0.10);
+      transform: translateY(-2px);
+    }
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pine), var(--sage));
+    }
+
+    .research-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(36,51,82,0.08);
+      color: var(--pine);
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+    }
+
+    .research-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .research-card p {
+      color: var(--mid);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .research-keywords {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .kw {
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--mid);
+      background: var(--paper);
+    }
+
+    /* ── PAPER ── */
+    .paper-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 6px 1fr;
+    }
+
+    .paper-stripe {
+      background: linear-gradient(180deg, var(--forest), var(--sage));
+    }
+
+    .paper-body {
+      padding: 32px 36px;
+    }
+
+    .paper-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+
+    .paper-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .paper-authors {
+      font-size: 0.87rem;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .paper-abstract {
+      font-size: 0.875rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 16px;
+      margin-top: 4px;
+    }
+
+    .paper-abstract summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.83rem;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .paper-abstract summary::-webkit-details-marker { display: none; }
+    .paper-abstract summary::before {
+      content: '▸';
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+    }
+    details[open] .paper-abstract summary::before { transform: rotate(90deg); }
+
+    .abstract-text {
+      margin-top: 14px;
+      color: var(--mid);
+      font-size: 0.875rem;
+      line-height: 1.75;
+    }
+
+    .paper-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 20px;
+      background: var(--forest);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-pdf:hover { background: var(--pine); }
+
+    .btn-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 20px;
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid rgba(26,38,64,0.3);
+      border-radius: 4px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-code:hover { background: rgba(26,38,64,0.05); border-color: var(--forest); }
+
+    /* ── EDUCATION ── */
+    .edu-timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 8px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--sage), transparent);
+    }
+
+    .edu-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--sage);
+    }
+
+    .edu-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 4px;
+    }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--forest);
+      margin-bottom: 3px;
+    }
+
+    .edu-school {
+      font-size: 0.87rem;
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-item {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .contact-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--pine);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 16px; height: 16px; fill: white; }
+
+    .contact-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 0.87rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest);
+      color: rgba(194,207,224,0.5);
+      text-align: center;
+      padding: 32px 48px;
+      font-size: 0.78rem;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .header-inner, main { padding-left: 24px; padding-right: 24px; }
+      .nav-inner { padding: 0 24px; overflow-x: auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-inner">
+    <div class="header-label">Personal Research Page</div>
+    <h1>Jiayi <span class="header-title-em">Tu</span></h1>
+    <div class="header-role">
+      <span>PhD Student</span>
+      <span class="role-divider"></span>
+      <span>Research Assistant</span>
+      <span class="role-divider"></span>
+      <span>Institute of Artificial Intelligence, University of Georgia</span>
+    </div>
+    <div class="header-links">
+      <a class="btn btn-primary" href="#papers">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View Paper
+      </a>
+      <a class="btn btn-outline" href="https://github.com/jiminxi1013/treemap-validation-talladega" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a class="btn btn-outline" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-label">Introduction</div>
+    <h2>About Me</h2>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>I am a <strong>PhD student and Research Assistant</strong> at the Institute of Artificial Intelligence, University of Georgia. My work sits at the intersection of <strong>remote sensing, spatial statistics, and forest ecology</strong>.</p>
+        <p>My current research focuses on the rigorous validation of large-scale forest mapping products — critically evaluating whether imputation-based approaches achieve genuine spatial predictive skill beyond population-level summaries.</p>
+        <p>I develop novel evaluation frameworks that go beyond conventional metrics, applying <strong>concordance correlation decomposition</strong>, scale-dependent accuracy analysis, and variance retention statistics to expose limitations invisible to standard RMSE and bias reporting.</p>
+      </div>
+      <div class="info-card">
+        <h3>Quick Info</h3>
+        <div class="info-item">
+          <span class="info-item-label">Position</span>
+          <span class="info-item-value"><strong>PhD Student · Research Assistant</strong></span>
+        </div>
+        <div class="info-item">
+          <span class="info-item-label">Institution</span>
+          <span class="info-item-value">Institute of Artificial Intelligence<br>University of Georgia, Athens GA</span>
+        </div>
+        <div class="info-item">
+          <span class="info-item-label">Research Area</span>
+          <span class="info-item-value">Forest Remote Sensing · Spatial Statistics · LiDAR Validation</span>
+        </div>
+        <div class="info-item">
+          <span class="info-item-label">GitHub</span>
+          <span class="info-item-value">
+            <a href="https://github.com/jiminxi1013" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/jiminxi1013</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="section-label">Focus Areas</div>
+    <h2>Research</h2>
+    <div class="research-card fade-up">
+      <div class="research-tag">Primary Project</div>
+      <h3>Validation of Imputation-Based Forest Mapping Products</h3>
+      <p>
+        I investigate the accuracy limits of wall-to-wall forest attribute products generated via nearest-neighbor imputation from LiDAR-derived metrics. A central question driving my work: do these products achieve genuine <em>spatial</em> predictive skill, or do they merely reproduce population-level means? My field validation in Talladega National Forest, Alabama, using 255 independent plots and 15,870 measured trees, reveals a systematic <strong>mean-structure decoupling paradox</strong> — algorithm updates that reduce bias can simultaneously destroy rank correlation, a failure mode invisible to conventional evaluation metrics.
+      </p>
+      <div class="research-keywords">
+        <span class="kw">LiDAR</span>
+        <span class="kw">Nearest-Neighbor Imputation</span>
+        <span class="kw">Concordance Correlation</span>
+        <span class="kw">Scale-Dependent Accuracy</span>
+        <span class="kw">Southeastern Mixed Forests</span>
+        <span class="kw">Carbon Accounting</span>
+        <span class="kw">Spatial Statistics</span>
+        <span class="kw">Forest Inventory</span>
+        <span class="kw">TreeMap</span>
+        <span class="kw">USDA FIA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANGE 2: section id="papers", heading "Papers" (no "Publications") -->
+  <section id="papers">
+    <div class="section-label">Papers</div>
+    <h2>Papers</h2>
+
+    <!-- Conference Poster -->
+    <div class="paper-card fade-up" style="margin-bottom: 20px;">
+      <div class="paper-stripe" style="background: linear-gradient(180deg, var(--sage), var(--mist));"></div>
+      <div class="paper-body">
+        <div class="paper-meta">Conference Poster · 2024 · PERSEUS Project</div>
+        <h3>Validating TreeMap Vegetation Data Using Field Measurements from Talladega National Forest</h3>
+        <div class="paper-authors">Jiayi Tu, Frederick W. Maier, Khaled Rasheed &nbsp;·&nbsp; Institute for Artificial Intelligence, University of Georgia</div>
+
+        <details>
+          <summary class="paper-abstract">Abstract</summary>
+          <div class="abstract-text">
+            This poster presents a validation of TreeMap 2016 predictions — diameter, height, basal area, and volume — against 2022 field measurements from 255 FIA plots in Talladega National Forest. Tree locations were spatially aligned using azimuth-distance mapping and convex hull boundaries, with area-weighted aggregation across overlapping pixels.
+            <br><br>
+            Results show weak correlations across all attributes (R² = 0.005 for diameter, 0.028 for height, 0.111 for basal area, 0.081 for volume), with systematic underestimation particularly in the upper quantiles. CDF comparisons confirm a consistent leftward shift in TreeMap predictions relative to field observations, indicating limited reliability for fine-scale stand-level analysis.
+            <br><br>
+            Supported by USDA NIFA #2023-68012-38992 (PERSEUS — Promoting Economic Resilience and Sustainability of the Eastern U.S. Forests), with assistance from the UGA Warnell School of Forestry and Natural Resources.
+          </div>
+        </details>
+
+        <div class="paper-actions">
+          <a class="btn-pdf" href="Perseus%20Poster.pdf" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            View Poster
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main manuscript -->
+    <div class="paper-card fade-up">
+      <div class="paper-stripe"></div>
+      <div class="paper-body">
+        <div class="paper-meta">Manuscript · 2024</div>
+        <h3>Validation of USDA TreeMap for Southeastern Mixed Pine-Hardwood Forests: A Comprehensive Assessment of TreeMap 2016 and 2022</h3>
+        <div class="paper-authors">Jiayi Tu &nbsp;·&nbsp; Institute of Artificial Intelligence, University of Georgia</div>
+
+        <details>
+          <summary class="paper-abstract">Abstract</summary>
+          <div class="abstract-text">
+            TreeMap provides 30-meter resolution forest attribute predictions across the conterminous United States, but rigorous independent validation in southeastern mixed forests remains limited. This study evaluated TreeMap 2016 and 2022 using field data from 255 plots (15,870 trees) in Talladega National Forest, Alabama, with area-weighted spatial overlay to address scale mismatches between 30 m pixels and 0.04 ha field plots.
+            <br><br>
+            Three findings emerge. First, scale-dependent analysis reveals a fundamental divergence: volume RMSE declined 84% (2016) and 83% (2022) from plot-level to 30-plot aggregations, confirming utility for regional biomass totals, while R² degraded monotonically across the same scales, confirming absence of spatial rank-ordering skill. Second, a <em>mean-structure decoupling paradox</em> is documented: TreeMap 2022 reduced tree-level bias while volume CCC collapsed from 0.416 to 0.164 and variance retention fell from 79% to 40%. Third, CCC decomposition (ρ/C_b separation) consistently revealed degradation invisible to conventional metrics.
+            <br><br>
+            TreeMap is appropriate for regional biomass accounting and landscape-scale inventory summaries. It is unsuitable for spatial mapping of structural variation at any scale. Evaluation frameworks should report CCC with ρ/C_b decomposition, variance retention, and scale-dependent R² alongside RMSE.
+          </div>
+        </details>
+
+        <div class="paper-actions">
+          <a class="btn-pdf" href="Validation of USDA TreeMap for Southeastern Mixed Pine-Hardwood Forests A Comprehensive Assessment of TreeMap 2016 and 2022.pdf" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Download PDF
+          </a>
+          <a class="btn-code" href="https://github.com/jiminxi1013/treemap-validation-talladega" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Code & Data
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="section-label">Background</div>
+    <h2>Education</h2>
+    <div class="edu-timeline fade-up">
+      <div class="edu-item">
+        <div class="edu-period">Current</div>
+        <div class="edu-degree">PhD in Artificial Intelligence</div>
+        <div class="edu-school">Institute of Artificial Intelligence · University of Georgia, Athens, GA</div>
+      </div>
+      <!-- CHANGE 3: Master's major updated -->
+      <div class="edu-item">
+        <div class="edu-period">Graduate</div>
+        <div class="edu-degree">Master of Science in Statistics with Data Science</div>
+        <div class="edu-school">University of Georgia</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">Undergraduate</div>
+        <div class="edu-degree">Bachelor of Science in Mathematics and Applied Mathematics</div>
+        <div class="edu-school">Xiamen University Malaysia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2>Contact</h2>
+    <div class="contact-grid fade-up">
+      <a class="contact-item" href="https://github.com/jiminxi1013" target="_blank">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">jiminxi1013</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Institution</div>
+          <div class="contact-value">University of Georgia</div>
+        </div>
+      </div>
+      <a class="contact-item" href="Validation of USDA TreeMap for Southeastern Mixed Pine-Hardwood Forests A Comprehensive Assessment of TreeMap 2016 and 2022.pdf" target="_blank">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Latest Paper</div>
+          <div class="contact-value">Download PDF</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  © 2024 Jiayi Tu &nbsp;·&nbsp; Institute of Artificial Intelligence, University of Georgia
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
